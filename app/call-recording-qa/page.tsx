@@ -6,7 +6,9 @@ import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
-const qaImg = '/images/call-recording-qa/hero.jpg';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const qaImg = `${s3Url}/call-recording-qa/hero.jpg`;
 
 const FREE_PROVIDERS = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com', 'aol.com', 'mail.ru', 'yandex.ru'];
 
@@ -176,7 +178,7 @@ export default function CallRecordingQAPage() {
             >
               <div className="w-full h-32 sm:h-40 md:h-48 mb-6 sm:mb-8 relative flex items-center justify-center drop-shadow-lg group-hover:scale-110 group-hover:-translate-y-2 group-hover:drop-shadow-[0_20px_20px_rgba(147,51,234,0.2)] transition-all duration-500">
                 <Image 
-                  src="/images/call-recording-qa/icon_capture.png" 
+                  src={`${s3Url}/call-recording-qa/icon_capture.png`} 
                   alt="Capture Everything" 
                   fill
                   quality={75}
@@ -199,7 +201,7 @@ export default function CallRecordingQAPage() {
             >
               <div className="w-full h-32 sm:h-40 md:h-48 mb-6 sm:mb-8 relative flex items-center justify-center drop-shadow-lg group-hover:scale-110 group-hover:-translate-y-2 group-hover:drop-shadow-[0_20px_20px_rgba(147,51,234,0.2)] transition-all duration-500">
                 <Image 
-                  src="/images/call-recording-qa/icon_scoring.png" 
+                  src={`${s3Url}/call-recording-qa/icon_scoring.png`} 
                   alt="AI Scoring" 
                   fill
                   quality={75}
@@ -222,7 +224,7 @@ export default function CallRecordingQAPage() {
             >
               <div className="w-full h-32 sm:h-40 md:h-48 mb-6 sm:mb-8 relative flex items-center justify-center drop-shadow-lg group-hover:scale-110 group-hover:-translate-y-2 group-hover:drop-shadow-[0_20px_20px_rgba(147,51,234,0.2)] transition-all duration-500">
                 <Image 
-                  src="/images/call-recording-qa/icon_coach.png" 
+                  src={`${s3Url}/call-recording-qa/icon_coach.png`} 
                   alt="Coach at Scale" 
                   fill
                   quality={75}

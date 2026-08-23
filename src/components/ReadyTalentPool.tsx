@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Users, Zap, CheckCircle2, Clock, ShieldCheck, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 export function ReadyTalentPool() {
   return (
     <section className="py-16 md:py-24 bg-background-primary border-b border-border-primary overflow-hidden relative flex items-center transition-theme">
@@ -27,17 +29,16 @@ export function ReadyTalentPool() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3 md:gap-4 mb-2">
                 <div className="flex -space-x-3 md:-space-x-4">
-                  {[12, 33, 47, 51, 62, 22].map((imgId, i) => (
+                  {[1, 2, 3, 4, 5, 6].map((num, i) => (
                     <div 
                       key={i}
                       className="w-10 h-10 md:w-12 md:h-12 rounded-full border-[2px] md:border-[3px] border-background-primary shadow-sm relative transition-theme overflow-hidden"
                       style={{ zIndex: 10 - i }}
                     >
                       <Image 
-                        src={`https://i.pravatar.cc/150?img=${imgId}`} 
+                        src={`${s3Url}/avatars/talent-${num}.jpg`} 
                         alt="Expert"
                         fill
-                        unoptimized={true}
                         quality={75}
                         sizes="(max-width: 768px) 40px, 48px"
                         className="object-cover"
@@ -100,21 +101,19 @@ export function ReadyTalentPool() {
               <div className="space-y-3 md:space-y-4 pt-2">
                 {/* Mock Profiles */}
                 {[
-                  { name: "Michael Davis", role: "Enterprise Account Executive", exp: "8 Yrs", win: "32% Win Rate", status: "Available Now", img: 11 },
-                  { name: "Sarah Chen", role: "Sr. SDR / BDR", exp: "4 Yrs", win: "120% Quota", status: "Available in 2 days", img: 32 },
-                  { name: "James Wilson", role: "Sales Ops Manager", exp: "6 Yrs", win: "RevOps Cert", status: "Available Now", img: 59 },
-                  { name: "Elena Rodriguez", role: "Mid-Market Closer", exp: "5 Yrs", win: "Top 5% Performer", status: "Available Now", img: 44 }
+                  { name: "Michael Davis", role: "Enterprise Account Executive", exp: "8 Yrs", win: "32% Win Rate", status: "Available Now", img: "profile-1.jpg" },
+                  { name: "Sarah Chen", role: "Sr. SDR / BDR", exp: "4 Yrs", win: "120% Quota", status: "Available in 2 days", img: "profile-2.jpg" },
+                  { name: "James Wilson", role: "Sales Ops Manager", exp: "6 Yrs", win: "RevOps Cert", status: "Available Now", img: "profile-3.jpg" },
+                  { name: "Elena Rodriguez", role: "Mid-Market Closer", exp: "5 Yrs", win: "Top 5% Performer", status: "Available Now", img: "profile-4.jpg" }
                 ].map((profile, idx) => (
                   <div key={idx} className="flex items-center justify-between p-3 md:p-4 rounded-2xl border border-border-primary/50 bg-background-primary/50 hover:bg-background-primary hover:border-blue-400 hover:shadow-md transition-all group cursor-pointer">
                     <div className="flex items-center gap-3 md:gap-4">
                       <div className="relative shrink-0">
-                        {/* Удален group-hover:scale-105 */}
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-background-secondary shadow-sm transition-all duration-300 relative overflow-hidden">
                           <Image 
-                            src={`https://i.pravatar.cc/150?img=${profile.img}`}
+                            src={`${s3Url}/avatars/${profile.img}`}
                             alt={profile.name}
                             fill
-                            unoptimized={true}
                             quality={75}
                             sizes="(max-width: 768px) 40px, 48px"
                             className="object-cover"
@@ -147,7 +146,7 @@ export function ReadyTalentPool() {
               </div>
             </div>
             
-            {/* Decorative Floating UI Elements - Hidden on smaller screens to avoid layout breaks */}
+            {/* Decorative Floating UI Elements */}
             <motion.div 
               animate={{ y: [-5, 5, -5] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}

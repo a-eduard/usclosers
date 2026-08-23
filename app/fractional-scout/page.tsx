@@ -6,7 +6,9 @@ import { Clock, CheckCircle2, XCircle, ArrowRight, Server, Mail, Users, ChevronR
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-const scoutHeroImg = '/images/fractional-scout/hero.jpg';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const scoutHeroImg = `${s3Url}/fractional-scout/hero.jpg`;
 
 export default function FractionalScoutPage() {
   const router = useRouter();
@@ -144,17 +146,17 @@ export default function FractionalScoutPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               { 
-                image: '/images/fractional-sdr/icon_pain_opex.png', title: 'Heavy Hidden OPEX', 
+                image: `${s3Url}/fractional-sdr/icon_pain_opex.png`, title: 'Heavy Hidden OPEX', 
                 problem: 'Besides the salary, you are forced to pay for software: LinkedIn Sales Nav ($100), Apollo ($100), Instantly ($100), domains and proxies ($150). Total: +$500/mo extra.',
                 tag: 'Wasted Budget'
               },
               { 
-                image: '/images/fractional-sdr/icon_pain_time.png', title: 'Long Time-to-Value', 
+                image: `${s3Url}/fractional-sdr/icon_pain_time.png`, title: 'Long Time-to-Value', 
                 problem: 'Hiring takes 3-4 weeks. Onboarding and tool training takes another 2 weeks. You burn budget before the first email is even sent.',
                 tag: 'Slow Execution'
               },
               { 
-                image: '/images/fractional-sdr/icon_pain_churn.png', title: 'Burnout & Churn', 
+                image: `${s3Url}/fractional-sdr/icon_pain_churn.png`, title: 'Burnout & Churn', 
                 problem: 'The average lifespan of a Scout in one company is 6-9 months. After burnout, the hiring process and budget drain start all over again.',
                 tag: 'High Turnover'
               }
@@ -191,19 +193,19 @@ export default function FractionalScoutPage() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-12 sm:mb-16">
             {[
               { 
-                title: 'Plug-and-Play Stack', image: '/images/fractional-sdr/icon_sdr_stack.png',
+                title: 'Plug-and-Play Stack', image: `${s3Url}/fractional-sdr/icon_sdr_stack.png`,
                 desc: 'We provide and pay for all outreach infrastructure. The Scout enters the project with their own accounts in Apollo, Clay, and Smartlead.' 
               },
               { 
-                title: 'Deep Expertise', image: '/images/fractional-sdr/icon_sdr_expertise.png',
+                title: 'Deep Expertise', image: `${s3Url}/fractional-sdr/icon_sdr_expertise.png`,
                 desc: 'No juniors. Our Fractional Scouts are trained to bypass spam filters, set up cascade data enrichment, and write high-converting CTAs.' 
               },
               { 
-                title: 'Time Tracking', image: '/images/fractional-sdr/icon_sdr_tracking.png',
+                title: 'Time Tracking', image: `${s3Url}/fractional-sdr/icon_sdr_tracking.png`,
                 desc: 'Strict control via trackers. You see minute-by-minute how much time was spent on database scraping, copywriting, and LinkedIn management.' 
               },
               { 
-                title: 'Fast Scalability', image: '/images/fractional-sdr/icon_sdr_scale.png',
+                title: 'Fast Scalability', image: `${s3Url}/fractional-sdr/icon_sdr_scale.png`,
                 desc: 'Need to test a new hypothesis in the US? We scale Scout load from 10 to 30 hours in 1 day. If it fails, pause without legal risks.' 
               }
             ].map((step, i) => (

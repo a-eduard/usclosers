@@ -6,7 +6,9 @@ import { Clock, CheckCircle2, XCircle, ArrowRight, BarChart4, ChevronRight, Shie
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-const teamLeadHeroImg = '/images/fractional-team-lead/hero.jpg';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const teamLeadHeroImg = `${s3Url}/fractional-team-lead/hero.jpg`;
 
 export default function FractionalTeamLeadPage() {
   const router = useRouter();
@@ -155,17 +157,17 @@ export default function FractionalTeamLeadPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               { 
-                image: '/images/fractional-team-lead/icon_pain_graveyard.png', title: 'CRM is a Graveyard', 
+                image: `${s3Url}/fractional-team-lead/icon_pain_graveyard.png`, title: 'CRM is a Graveyard', 
                 problem: 'Sales reps don\'t fill custom fields, forget to move deals through pipeline stages, and skip call summaries. Your analytics are completely blind.',
                 tag: 'Blind Analytics'
               },
               { 
-                image: '/images/fractional-team-lead/icon_pain_calls.png', title: 'No One Listens to Calls', 
+                image: `${s3Url}/fractional-team-lead/icon_pain_calls.png`, title: 'No One Listens to Calls', 
                 problem: 'Managers blow leads at the Discovery stage, make critical errors in scripts, and fail to handle Enterprise objections. The same mistakes repeat daily.',
                 tag: 'Lost Revenue'
               },
               { 
-                image: '/images/fractional-team-lead/icon_pain_micromanagement.png', title: 'Founder Micromanagement', 
+                image: `${s3Url}/fractional-team-lead/icon_pain_micromanagement.png`, title: 'Founder Micromanagement', 
                 problem: 'Instead of focusing on strategy and raising investments, the founder personally runs sales syncs, polices discipline, and calculates KPIs manually.',
                 tag: 'Wasted Time'
               }
@@ -202,19 +204,19 @@ export default function FractionalTeamLeadPage() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             {[
               { 
-                title: 'Discipline & Rhythm', image: '/images/fractional-team-lead/icon_lead_discipline.png',
+                title: 'Discipline & Rhythm', image: `${s3Url}/fractional-team-lead/icon_lead_discipline.png`,
                 desc: 'Daily 15-minute morning standups (reviewing SDR/AE daily plans) and a weekly deep-dive pipeline review.' 
               },
               { 
-                title: 'QA & Call Quality', image: '/images/fractional-team-lead/icon_lead_qa.png',
+                title: 'QA & Call Quality', image: `${s3Url}/fractional-team-lead/icon_lead_qa.png`,
                 desc: 'Regular listening and scoring of demo call recordings in Gong / tl;dv / Fireflies. Adapting scripts to market feedback.' 
               },
               { 
-                title: 'RevOps & Dashboards', image: '/images/fractional-team-lead/icon_lead_revops.png',
+                title: 'RevOps & Dashboards', image: `${s3Url}/fractional-team-lead/icon_lead_revops.png`,
                 desc: 'Building transparent reporting in CRM (HubSpot / Pipedrive). Monitoring Activity Rate, Reply Rate, Booking Rate, Close Rate.' 
               },
               { 
-                title: 'Coaching & Development', image: '/images/fractional-team-lead/icon_lead_coaching.png',
+                title: 'Coaching & Development', image: `${s3Url}/fractional-team-lead/icon_lead_coaching.png`,
                 desc: 'Conducting live role-plays with reps, breaking down complex Enterprise cases, and helping close stuck late-stage deals.' 
               }
             ].map((step, i) => (

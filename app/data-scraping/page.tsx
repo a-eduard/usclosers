@@ -6,7 +6,9 @@ import { Shield, Search, Database, AlertTriangle, XCircle, TrendingDown, Clock, 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-const dataHeroImg = '/images/data-scraping/hero.jpg';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const dataHeroImg = `${s3Url}/data-scraping/hero.jpg`;
 
 export default function DataScrapingPage() {
   const router = useRouter();
@@ -157,17 +159,17 @@ export default function DataScrapingPage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {[
               { 
-                image: '/images/data-scraping/icon_cost_bounce.png', title: 'High Bounce Rate (> 5-10%)', 
+                image: `${s3Url}/data-scraping/icon_cost_bounce.png`, title: 'High Bounce Rate (> 5-10%)', 
                 desc: 'Email providers (Google, Microsoft) instantly blacklist your company domain. Deliverability drops even for regular business emails.',
                 metric: 'Domain Burned'
               },
               { 
-                image: '/images/data-scraping/icon_cost_generic.png', title: 'Generic Inboxes (info@, sales@)', 
+                image: `${s3Url}/data-scraping/icon_cost_generic.png`, title: 'Generic Inboxes (info@, sales@)', 
                 desc: 'SDR budgets wasted. Your perfectly crafted emails get stuck at the assistant level and never reach actual decision-makers (C-level).',
                 metric: '0% Reply Rate'
               },
               { 
-                image: '/images/data-scraping/icon_cost_outdated.png', title: 'Outdated Static Databases', 
+                image: `${s3Url}/data-scraping/icon_cost_outdated.png`, title: 'Outdated Static Databases', 
                 desc: 'Buying static lists from 2024/2025 means calling ex-employees or closed businesses. B2B data loses relevance by 25% every 6 months.',
                 metric: 'Data Decay'
               }
@@ -212,15 +214,15 @@ export default function DataScrapingPage() {
 
             {[
               { 
-                step: '01', title: 'Targeted Parsing', image: '/images/data-scraping/icon_tech_parsing.png',
+                step: '01', title: 'Targeted Parsing', image: `${s3Url}/data-scraping/icon_tech_parsing.png`,
                 desc: 'Real-time data extraction based on your exact ICP from 15+ open and closed sources simultaneously (LinkedIn Sales Navigator, Crunchbase, GitHub, BuiltWith).' 
               },
               { 
-                step: '02', title: 'Cascade Enrichment', image: '/images/data-scraping/icon_tech_enrichment.png',
+                step: '02', title: 'Cascade Enrichment', image: `${s3Url}/data-scraping/icon_tech_enrichment.png`,
                 desc: 'If one provider misses the email, the system automatically engages secondary and tertiary data layers for maximum coverage.' 
               },
               { 
-                step: '03', title: '3-Stage SMTP Check', image: '/images/data-scraping/icon_tech_smtp.png',
+                step: '03', title: '3-Stage SMTP Check', image: `${s3Url}/data-scraping/icon_tech_smtp.png`,
                 desc: 'Server-level mailbox existence verification without sending an email. 100% removal of Spam Traps and Catch-all addresses.' 
               }
             ].map((step, i) => (
@@ -367,7 +369,7 @@ export default function DataScrapingPage() {
           <div className="bg-background-primary border border-border-primary shadow-xl p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 transition-theme">
             <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 relative flex items-center justify-center shrink-0 drop-shadow-xl hover:scale-105 transition-transform duration-500">
               <Image 
-                src="/images/data-scraping/icon_guarantee.png" 
+                src={`${s3Url}/data-scraping/icon_guarantee.png`} 
                 alt="Legal SLA Guarantee" 
                 fill
                 sizes="(max-width: 768px) 96px, 160px"

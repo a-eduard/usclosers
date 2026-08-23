@@ -17,6 +17,8 @@ import {
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 const ORG_NODES = [
   {
     id: 'tl',
@@ -324,17 +326,17 @@ export default function EnterpriseSquadBuilderPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { 
-                image: '/images/enterprise-squad/icon_pain_hr.png', title: 'HR Time Collapse', 
+                image: `${s3Url}/enterprise-squad/icon_pain_hr.png`, title: 'HR Time Collapse', 
                 problem: 'Classic hiring, security checks, offer approvals, and onboarding by internal HR take 3 to 6 months. Your product stands idle while competitors take market share.',
                 tag: 'Slow Execution'
               },
               { 
-                image: '/images/enterprise-squad/icon_pain_software.png', title: 'Software "Zoo" & No RevOps', 
+                image: `${s3Url}/enterprise-squad/icon_pain_software.png`, title: 'Software "Zoo" & No RevOps', 
                 problem: 'Internal IT departments spend months approving modern outreach tools. Salespeople work in fragmented systems without Conversation Intelligence or automatic scraping.',
                 tag: 'IT Bottleneck'
               },
               { 
-                image: '/images/enterprise-squad/icon_pain_responsibility.png', title: 'Blurred Responsibility', 
+                image: `${s3Url}/enterprise-squad/icon_pain_responsibility.png`, title: 'Blurred Responsibility', 
                 problem: 'Recruiting agencies charge a fee for "a person showing up to work," but bear no responsibility for meeting KPIs, CRM hygiene, or the team\'s real Win Rate.',
                 tag: 'No Guarantee'
               }
@@ -371,22 +373,22 @@ export default function EnterpriseSquadBuilderPage() {
           <div className="grid lg:grid-cols-2 gap-8">
             {[
               {
-                title: 'Module 1: Sales Squad Staffing (HR-Ops)', image: '/images/enterprise-squad/icon_solution_staffing.png',
+                title: 'Module 1: Sales Squad Staffing (HR-Ops)', image: `${s3Url}/enterprise-squad/icon_solution_staffing.png`,
                 desc: 'Mass hunting, 3-stage automated stress screening, and live candidate certification. Deploying a cohesive operational cell: 1 Sales Team Lead + 1 SDR + 1 AE.',
                 bullets: ['Stress-tested candidates', 'Complete 3-person cell', 'Ready to execute']
               },
               {
-                title: 'Module 2: Product LMS Academy', image: '/images/enterprise-squad/icon_solution_academy.png',
+                title: 'Module 2: Product LMS Academy', image: `${s3Url}/enterprise-squad/icon_solution_academy.png`,
                 desc: 'Custom onboarding program development. We train the hired team on the specifics, technical nuances, and value proposition of your complex product before official transfer.',
                 bullets: ['Custom curriculum', 'Deep technical training', 'Pre-transfer certification']
               },
               {
-                title: 'Module 3: Full Enterprise Sales Ops Cloud', image: '/images/enterprise-squad/icon_solution_cloud.png',
+                title: 'Module 3: Full Enterprise Sales Ops Cloud', image: `${s3Url}/enterprise-squad/icon_solution_cloud.png`,
                 desc: 'Deployment and infrastructure coverage for the first month: CRM (HubSpot/Salesforce), AI call analysis (Gong), and waterfall enrichment of decision-maker databases via Clay.',
                 bullets: ['Pre-configured CRM', 'AI Conversation Intelligence', 'Automated Prospecting']
               },
               {
-                title: 'Module 4: Legal SLA Contour', image: '/images/enterprise-squad/icon_solution_sla.png',
+                title: 'Module 4: Legal SLA Contour', image: `${s3Url}/enterprise-squad/icon_solution_sla.png`,
                 desc: 'Written corporate guarantee: free replacement of any cell employee within 48 hours if they fail to meet target KPIs for activity or funnel volume in the first 90 days.',
                 bullets: ['48-Hour Replacement', 'Strict KPI Enforcement', '90-Day Protection']
               }
@@ -424,7 +426,7 @@ export default function EnterpriseSquadBuilderPage() {
           <div className="text-center mb-16 flex flex-col items-center">
             <div className="w-64 h-64 md:w-80 md:h-80 mb-8 relative drop-shadow-2xl hover:scale-105 transition-transform duration-500">
                <Image 
-                 src="/images/enterprise-squad/icon_timeline_deploy.png" 
+                 src={`${s3Url}/enterprise-squad/icon_timeline_deploy.png`} 
                  alt="30-Day Enterprise Deployment Timeline" 
                  fill
                  sizes="(max-width: 768px) 256px, 320px"

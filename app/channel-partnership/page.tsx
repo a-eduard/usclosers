@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 export default function ChannelPartnershipPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
@@ -88,7 +90,7 @@ export default function ChannelPartnershipPage() {
 
             <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-border-primary transition-theme">
               <Image
-                src="/images/channel-partnership/hero_alliance.png"
+                src={`${s3Url}/channel-partnership/hero_alliance.png`}
                 alt="Strategic Channel Partnerships"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -117,19 +119,19 @@ export default function ChannelPartnershipPage() {
               {
                 title: 'Limited Reach',
                 tag: 'Linear Growth',
-                img: '/images/channel-partnership/icon_pain_reach.png',
+                img: `${s3Url}/channel-partnership/icon_pain_reach.png`,
                 desc: 'Direct outbound only scales linearly with headcount. Reaching enterprise accounts one by one is slow and expensive.'
               },
               {
                 title: 'Lack of Authority',
                 tag: 'Trust Deficit',
-                img: '/images/channel-partnership/icon_pain_authority.png',
+                img: `${s3Url}/channel-partnership/icon_pain_authority.png`,
                 desc: 'Enterprise buyers prefer purchasing through trusted system integrators and vendors they already work with.'
               },
               {
                 title: 'High CAC',
                 tag: 'Unit Economics',
-                img: '/images/channel-partnership/icon_pain_cac.png',
+                img: `${s3Url}/channel-partnership/icon_pain_cac.png`,
                 desc: 'Customer Acquisition Costs spiral out of control when you have to educate the market and hunt every deal manually.'
               }
             ].map((card, idx) => (

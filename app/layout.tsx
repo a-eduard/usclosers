@@ -14,11 +14,13 @@ const inter = Inter({
   display: "swap",
 });
 
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 export const metadata: Metadata = {
   title: "USClosers | B2B Sales Ecosystem",
   description: "Build a scalable B2B sales ecosystem with our fractional experts and preconfigured infrastructure.",
   icons: {
-    icon: '/images/usc_logo_s.png',
+    icon: `${s3Url}/usc_logo_s.png`,
   },
 };
 

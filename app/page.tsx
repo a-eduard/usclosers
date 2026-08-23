@@ -22,6 +22,8 @@ declare global {
   }
 }
 
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 export default function Home() {
   const router = useRouter();
   const { openCalendly } = useCalendly();
@@ -133,24 +135,24 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 md:pb-8 z-20 bg-gradient-to-t from-background-secondary to-transparent pt-12 sm:pt-16 transition-theme">
           <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-6 sm:gap-x-8 md:gap-x-12 gap-y-4 md:gap-y-6 items-center opacity-80 hover:opacity-100 transition-opacity duration-300">
             {[
-              { name: 'Thales', src: '/logos/thalesgroup.webp', invertDark: false },
-              { name: 'ABB', src: '/logos/abb.webp', invertDark: false },
-              { name: 'Ericsson', src: '/logos/ericsson.webp', invertDark: false },
-              { name: '3M', src: '/logos/3M_CORPORATION.png', invertDark: false },
-              { name: 'Shell', src: '/logos/Shell_logo.svg.png', invertDark: false },
-              { name: 'Desjardins', src: '/logos/desjardins.png', invertDark: false },
-              { name: 'Montreal', src: '/logos/montreal.webp', invertDark: false },
-              { name: 'Jerusalem', src: '/logos/Emblem_of_Jerusalem.svg.png', invertDark: false },
-              { name: 'Ashdod Port', src: '/logos/ashdodport.webp', invertDark: false },
-              { name: 'Mivne', src: '/logos/mivne_logo_knyot.png', invertDark: false },
-              { name: 'Al Marjan Island', src: '/logos/almarjanisland.webp', invertDark: false },
-              { name: 'Dan Hotels', src: '/logos/Dan.webp', invertDark: true }, // Pure black logo
-              { name: 'Puma', src: '/logos/Puma_complete_logo.svg', invertDark: true }, // Pure black logo
-              { name: 'Yafo', src: '/logos/Yafo.webp', invertDark: false },
-              { name: 'Accureference', src: '/logos/accureference.webp', invertDark: false },
-              { name: 'Letico', src: '/logos/letico.webp', invertDark: true }, // Pure black logo
-              { name: 'Mori', src: '/logos/mori.webp', invertDark: true }, // Pure black logo
-              { name: 'Water Authority', src: '/logos/waterauthority.webp', invertDark: false }
+              { name: 'Thales', src: `${s3Url}/logos/thalesgroup.webp`, invertDark: false },
+              { name: 'ABB', src: `${s3Url}/logos/abb.webp`, invertDark: false },
+              { name: 'Ericsson', src: `${s3Url}/logos/ericsson.webp`, invertDark: false },
+              { name: '3M', src: `${s3Url}/logos/3M_CORPORATION.png`, invertDark: false },
+              { name: 'Shell', src: `${s3Url}/logos/Shell_logo.svg.png`, invertDark: false },
+              { name: 'Desjardins', src: `${s3Url}/logos/desjardins.png`, invertDark: false },
+              { name: 'Montreal', src: `${s3Url}/logos/montreal.webp`, invertDark: false },
+              { name: 'Jerusalem', src: `${s3Url}/logos/Emblem_of_Jerusalem.svg.png`, invertDark: false },
+              { name: 'Ashdod Port', src: `${s3Url}/logos/ashdodport.webp`, invertDark: false },
+              { name: 'Mivne', src: `${s3Url}/logos/mivne_logo_knyot.png`, invertDark: false },
+              { name: 'Al Marjan Island', src: `${s3Url}/logos/almarjanisland.webp`, invertDark: false },
+              { name: 'Dan Hotels', src: `${s3Url}/logos/Dan.webp`, invertDark: true }, // Pure black logo
+              { name: 'Puma', src: `${s3Url}/logos/Puma_complete_logo.svg`, invertDark: true }, // Pure black logo
+              { name: 'Yafo', src: `${s3Url}/logos/Yafo.webp`, invertDark: false },
+              { name: 'Accureference', src: `${s3Url}/logos/accureference.webp`, invertDark: false },
+              { name: 'Letico', src: `${s3Url}/logos/letico.webp`, invertDark: true }, // Pure black logo
+              { name: 'Mori', src: `${s3Url}/logos/mori.webp`, invertDark: true }, // Pure black logo
+              { name: 'Water Authority', src: `${s3Url}/logos/waterauthority.webp`, invertDark: false }
             ].map((company) => (
               <Image 
                 key={company.name}

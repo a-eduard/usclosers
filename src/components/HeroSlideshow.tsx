@@ -4,15 +4,17 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 const images = [
-  '/images/o19.png',
-  '/images/o6.png',
-  '/images/o3.png',
-  '/images/o7.png',
-  '/images/o17.png',
-  '/images/o10.png',
-  '/images/o8.png',
-  '/images/o16.png'
+  `${s3Url}/o19.png`,
+  `${s3Url}/o6.png`,
+  `${s3Url}/o3.png`,
+  `${s3Url}/o7.png`,
+  `${s3Url}/o17.png`,
+  `${s3Url}/o10.png`,
+  `${s3Url}/o8.png`,
+  `${s3Url}/o16.png`
 ];
 
 export function HeroSlideshow() {
@@ -44,9 +46,9 @@ export function HeroSlideshow() {
               src={images[currentIndex]}
               alt={`SalesOps Module ${currentIndex + 1}`}
               fill
-              quality={65} // Сильная оптимизация веса PNG
-              priority={currentIndex === 0} // Первая картинка грузится без задержек
-              sizes="(max-width: 768px) 100vw, 50vw" // Адаптивная загрузка
+              quality={65} // Strong optimization for PNG weight
+              priority={currentIndex === 0} // First image loads without delay
+              sizes="(max-width: 768px) 100vw, 50vw" // Responsive loading
               className="object-contain drop-shadow-2xl"
             />
           </motion.div>

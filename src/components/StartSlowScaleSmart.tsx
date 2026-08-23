@@ -6,9 +6,11 @@ import { ArrowRight, Check, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const scoutImg = '/images/fractional_scout_specialist_1783204112243.jpg';
-const sdrImg = '/images/fractional_sdr_manager_1782761308492.jpg';
-const closerImg = '/images/fractional_closer_1782761418911.jpg';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const scoutImg = `${s3Url}/fractional_scout_specialist_1783204112243.jpg`;
+const sdrImg = `${s3Url}/fractional_sdr_manager_1782761308492.jpg`;
+const closerImg = `${s3Url}/fractional_closer_1782761418911.jpg`;
 
 const STATES = [
   {
@@ -112,7 +114,7 @@ export function StartSlowScaleSmart() {
                       {STATES[activeState].badge}
                     </div>
                     <button
-                      onClick={() => window.location.href = 'https://usclosers-wizard.vercel.app/en'}
+                      onClick={() => window.location.href = 'https://order.usclosers.com/'}
                       className="shrink-0 w-full sm:w-auto flex items-center justify-center px-5 py-2.5 rounded-lg text-[11px] font-bold tracking-wide uppercase transition-all duration-300 bg-blue-600 text-white shadow-md hover:bg-blue-700 hover:shadow-lg pointer-events-auto"
                     >
                       Order Now
@@ -203,7 +205,7 @@ export function StartSlowScaleSmart() {
                       </div>
                     </div>
                     <button
-                      onClick={() => window.location.href = 'https://usclosers-wizard.vercel.app/en'}
+                      onClick={() => window.location.href = 'https://order.usclosers.com/'}
                       className="shrink-0 w-full sm:w-auto mt-2 sm:mt-0 flex items-center justify-center px-5 py-2.5 rounded-lg text-[11px] font-bold tracking-wide uppercase transition-all duration-300 bg-blue-600 text-white shadow-md hover:bg-blue-700 hover:shadow-lg"
                     >
                       Order Now

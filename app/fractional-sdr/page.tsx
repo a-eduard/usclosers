@@ -6,7 +6,9 @@ import { Clock, CheckCircle2, XCircle, ArrowRight, Server, Mail, Users, ChevronR
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-const sdrHeroImg = '/images/fractional-sdr/hero.jpg';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const sdrHeroImg = `${s3Url}/fractional-sdr/hero.jpg`;
 
 export default function FractionalSDRPage() {
   const router = useRouter();
@@ -144,17 +146,17 @@ export default function FractionalSDRPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               { 
-                image: '/images/fractional-sdr/icon_pain_opex.png', title: 'Heavy Hidden OPEX', 
+                image: `${s3Url}/fractional-sdr/icon_pain_opex.png`, title: 'Heavy Hidden OPEX', 
                 problem: 'Besides the $2,500 salary, you are forced to pay for software: LinkedIn Sales Nav ($100), Apollo ($100), Instantly ($100), domains and proxies ($150). Total: +$500/mo extra.',
                 tag: 'Wasted Budget'
               },
               { 
-                image: '/images/fractional-sdr/icon_pain_time.png', title: 'Long Time-to-Value', 
+                image: `${s3Url}/fractional-sdr/icon_pain_time.png`, title: 'Long Time-to-Value', 
                 problem: 'Hiring takes 3-4 weeks. Onboarding and tool training takes another 2 weeks. You burn budget before the first email is even sent.',
                 tag: 'Slow Execution'
               },
               { 
-                image: '/images/fractional-sdr/icon_pain_churn.png', title: 'Burnout & Churn', 
+                image: `${s3Url}/fractional-sdr/icon_pain_churn.png`, title: 'Burnout & Churn', 
                 problem: 'The average lifespan of an SDR in one company is 6-9 months. After burnout, the hiring process and budget drain start all over again.',
                 tag: 'High Turnover'
               }
@@ -191,19 +193,19 @@ export default function FractionalSDRPage() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-12 sm:mb-16">
             {[
               { 
-                title: 'Plug-and-Play Stack', image: '/images/fractional-sdr/icon_sdr_stack.png',
+                title: 'Plug-and-Play Stack', image: `${s3Url}/fractional-sdr/icon_sdr_stack.png`,
                 desc: 'We provide and pay for all outreach infrastructure. The SDR enters the project with their own accounts in Apollo, Clay, and Smartlead.' 
               },
               { 
-                title: 'Deep Expertise', image: '/images/fractional-sdr/icon_sdr_expertise.png',
+                title: 'Deep Expertise', image: `${s3Url}/fractional-sdr/icon_sdr_expertise.png`,
                 desc: 'No juniors. Our Fractional SDRs are trained to bypass spam filters, set up cascade data enrichment, and write high-converting CTAs.' 
               },
               { 
-                title: 'Time Tracking', image: '/images/fractional-sdr/icon_sdr_tracking.png',
+                title: 'Time Tracking', image: `${s3Url}/fractional-sdr/icon_sdr_tracking.png`,
                 desc: 'Strict control via trackers. You see minute-by-minute how much time was spent on database scraping, copywriting, and LinkedIn management.' 
               },
               { 
-                title: 'Fast Scalability', image: '/images/fractional-sdr/icon_sdr_scale.png',
+                title: 'Fast Scalability', image: `${s3Url}/fractional-sdr/icon_sdr_scale.png`,
                 desc: 'Need to test a new hypothesis in the US? We scale SDR load from 10 to 30 hours in 1 day. If it fails, pause without legal risks.' 
               }
             ].map((step, i) => (
@@ -341,7 +343,7 @@ export default function FractionalSDRPage() {
                   </div>
                 </li>
               </ul>
-              <button className={`w-full py-3 sm:py-4 rounded-xl font-bold tracking-wide transition-all text-sm sm:text-base relative z-10 ${selectedTier === 'scale' ? 'bg-blue-600 text-white shadow-md' : 'bg-blue-50 dark:bg-blue-600/20 text-blue-700 dark:text-blue-400 group-hover:bg-blue-100 dark:group-hover:bg-blue-600/30 border border-blue-200 dark:border-blue-500/50'}`}>
+              <button className={`w-full py-3 sm:py-4 rounded-xl font-bold tracking-wide transition-all text-sm sm:text-base relative z-10 ${selectedTier === 'scale' ? 'bg-blue-600 text-white shadow-md' : 'bg-blue-50 dark:bg-blue-600/20 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-600/30 border border-blue-200 dark:border-blue-500/50'}`}>
                 Select
               </button>
             </div>

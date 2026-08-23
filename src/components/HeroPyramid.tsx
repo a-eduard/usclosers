@@ -4,16 +4,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const o1 = '/images/old_rooms/1.png';
-const o3 = '/images/old_rooms/3.png';
-const o6 = '/images/old_rooms/6.png';
-const o7 = '/images/old_rooms/7.png';
-const o8 = '/images/old_rooms/8.png';
-const o10 = '/images/old_rooms/10.png';
-const o11 = '/images/old_rooms/11.png';
-const o12 = '/images/old_rooms/12.png';
-const o16 = '/images/old_rooms/16.png';
-const o17 = '/images/old_rooms/17.png';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const o1 = `${s3Url}/old_rooms/1.png`;
+const o3 = `${s3Url}/old_rooms/3.png`;
+const o6 = `${s3Url}/old_rooms/6.png`;
+const o7 = `${s3Url}/old_rooms/7.png`;
+const o8 = `${s3Url}/old_rooms/8.png`;
+const o10 = `${s3Url}/old_rooms/10.png`;
+const o11 = `${s3Url}/old_rooms/11.png`;
+const o12 = `${s3Url}/old_rooms/12.png`;
+const o16 = `${s3Url}/old_rooms/16.png`;
+const o17 = `${s3Url}/old_rooms/17.png`;
 
 const CASES = [
   {

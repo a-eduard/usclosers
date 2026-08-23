@@ -13,7 +13,9 @@ import {
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-const aiCloserImg = '/images/ai-digital-closer/hero.jpg';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const aiCloserImg = `${s3Url}/ai-digital-closer/hero.jpg`;
 
 export default function AIDigitalCloserPage() {
   const router = useRouter();
@@ -170,17 +172,17 @@ export default function AIDigitalCloserPage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {[
               { 
-                image: '/images/ai-digital-closer/icon_pain_missed_leads.png', title: 'Missed Off-Hours Leads', 
+                image: `${s3Url}/ai-digital-closer/icon_pain_missed_leads.png`, title: 'Missed Off-Hours Leads', 
                 problem: 'B2B buyers research products at night and on weekends. A human team misses 40% of peak interest windows because they are simply asleep.',
                 tag: 'Lost Opportunities'
               },
               { 
-                image: '/images/ai-digital-closer/icon_pain_fatigue.png', title: 'SDR Burnout & Fatigue', 
+                image: `${s3Url}/ai-digital-closer/icon_pain_fatigue.png`, title: 'SDR Burnout & Fatigue', 
                 problem: 'Making 100 calls a day destroys motivation. Burned-out reps skip follow-ups, sound robotic on the phone, and quit after 6 months.',
                 tag: 'High Churn'
               },
               { 
-                image: '/images/ai-digital-closer/icon_pain_inconsistent.png', title: 'Inconsistent Pitches', 
+                image: `${s3Url}/ai-digital-closer/icon_pain_inconsistent.png`, title: 'Inconsistent Pitches', 
                 problem: 'Humans forget key value props, fumble complex objections, and fail to log critical discovery data into the CRM after the call.',
                 tag: 'Human Error'
               }
@@ -217,22 +219,22 @@ export default function AIDigitalCloserPage() {
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
             {[
               {
-                title: '24/7 Autonomous Sales', image: '/images/ai-digital-closer/icon_ai_24_7.png',
+                title: '24/7 Autonomous Sales', image: `${s3Url}/ai-digital-closer/icon_ai_24_7.png`,
                 desc: 'Instantly responds to inbound inquiries within seconds, booking meetings and answering questions while your competitors sleep.',
                 bullets: ['Zero Wait Time', 'Always Online', 'Global Reach']
               },
               {
-                title: 'Live Product Demos', image: '/images/ai-digital-closer/icon_ai_demo.png',
+                title: 'Live Product Demos', image: `${s3Url}/ai-digital-closer/icon_ai_demo.png`,
                 desc: 'Conducts interactive, personalized product walkthroughs tailored to the prospect\'s exact use case and industry.',
                 bullets: ['Dynamic Walkthroughs', 'Use-Case Personalization', 'Objection Handling']
               },
               {
-                title: 'Automated Discovery Loops', image: '/images/ai-digital-closer/icon_ai_discovery.png',
+                title: 'Automated Discovery Loops', image: `${s3Url}/ai-digital-closer/icon_ai_discovery.png`,
                 desc: 'Executes perfect BANT/MEDDIC qualification, intelligently navigating conversation trees to identify true buyers.',
                 bullets: ['BANT/MEDDIC Scoring', 'Contextual Questions', 'Intent Recognition']
               },
               {
-                title: 'Instant CRM Sync', image: '/images/ai-digital-closer/icon_ai_crm.png',
+                title: 'Instant CRM Sync', image: `${s3Url}/ai-digital-closer/icon_ai_crm.png`,
                 desc: 'Flawlessly logs chat transcripts, call summaries, and extracted data points directly into HubSpot or Salesforce instantly.',
                 bullets: ['Zero Manual Data Entry', 'HubSpot/Salesforce Native', 'Clean Pipelines']
               }

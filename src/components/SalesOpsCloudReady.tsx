@@ -3,26 +3,27 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 
-const imgEmptyRoom = '/images/old_rooms/19.png';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const imgEmptyRoom = `${s3Url}/old_rooms/19.png`;
 
 // Обновленный маппинг картинок согласно визуальным метафорам
 const ROOM_IMAGES: Record<string, string> = {
-  "Sales Team Chat": '/images/old_rooms/6.png',
-  "Preconfigured CRM": '/images/old_rooms/11.png',
-  "Call Recording & QA": '/images/old_rooms/12.png',
-  "Sales Operations": '/images/old_rooms/8.png',
-  "SalesOps Dashboards": '/images/old_rooms/7.png',
-  "Global Payroll": '/images/old_rooms/16.png',
-  "Recruiting & Screening": '/images/old_rooms/10.png',
-  "Onboarding & Training": '/images/old_rooms/3.png',
+  "Sales Team Chat": `${s3Url}/old_rooms/6.png`,
+  "Preconfigured CRM": `${s3Url}/old_rooms/11.png`,
+  "Call Recording & QA": `${s3Url}/old_rooms/12.png`,
+  "Sales Operations": `${s3Url}/old_rooms/8.png`,
+  "SalesOps Dashboards": `${s3Url}/old_rooms/7.png`,
+  "Global Payroll": `${s3Url}/old_rooms/16.png`,
+  "Recruiting & Screening": `${s3Url}/old_rooms/10.png`,
+  "Onboarding & Training": `${s3Url}/old_rooms/3.png`,
 };
 
 const FEATURES = [
   { 
     id: 'chat',
-    customIcon: '/images/salesopscloudready/icon_chat.png', 
+    customIcon: `${s3Url}/salesopscloudready/icon_chat.png`, 
     title: "Sales Team Chat", 
     desc: "Secure, centralized messaging workspace for your team.",
     whatItIs: "A secure, centralized messaging workspace built specifically for your sales team.",
@@ -30,7 +31,7 @@ const FEATURES = [
   },
   { 
     id: 'crm',
-    customIcon: '/images/salesopscloudready/icon_crm.png', 
+    customIcon: `${s3Url}/salesopscloudready/icon_crm.png`, 
     title: "Preconfigured CRM", 
     desc: "Ready-to-go database with automated lead routing.",
     whatItIs: "A ready-to-go database with strict data-entry guardrails and automated lead routing.",
@@ -38,7 +39,7 @@ const FEATURES = [
   },
   { 
     id: 'qa',
-    customIcon: '/images/salesopscloudready/icon_qa.png', 
+    customIcon: `${s3Url}/salesopscloudready/icon_qa.png`, 
     title: "Call Recording & QA", 
     desc: "Auto-record calls and use AI to transcribe and score.",
     whatItIs: "An engine that auto-records calls and uses AI to transcribe, score, and flag pitch errors.",
@@ -46,7 +47,7 @@ const FEATURES = [
   },
   { 
     id: 'ops',
-    customIcon: '/images/salesopscloudready/icon_ops.png', 
+    customIcon: `${s3Url}/salesopscloudready/icon_ops.png`, 
     title: "Sales Operations", 
     desc: "Mandatory, step-by-step rulebook for your sales engine.",
     whatItIs: "A mandatory, step-by-step rulebook for everything from cold calling to CRM data entry.",
@@ -54,7 +55,7 @@ const FEATURES = [
   },
   { 
     id: 'dashboards',
-    customIcon: '/images/salesopscloudready/icon_dash.png', 
+    customIcon: `${s3Url}/salesopscloudready/icon_dash.png`, 
     title: "SalesOps Dashboards", 
     desc: "Live, automated tracking of daily activities and revenue.",
     whatItIs: "Live, automated tracking of daily activities, conversion rates, and revenue output.",
@@ -62,7 +63,7 @@ const FEATURES = [
   },
   { 
     id: 'payroll',
-    customIcon: '/images/salesopscloudready/icon_payroll.png', 
+    customIcon: `${s3Url}/salesopscloudready/icon_payroll.png`, 
     title: "Global Payroll", 
     desc: "Compliance for international taxes and commissions.",
     whatItIs: "Compliance software that calculates international taxes and commissions for remote reps.",
@@ -70,7 +71,7 @@ const FEATURES = [
   },
   { 
     id: 'recruiting',
-    customIcon: '/images/salesopscloudready/icon_recruiting.png', 
+    customIcon: `${s3Url}/salesopscloudready/icon_recruiting.png`, 
     title: "Recruiting & Screening", 
     desc: "Auto-sources and tests candidates.",
     whatItIs: "An automated pipeline that sources, background-checks, and tests sales candidates for you.",
@@ -78,7 +79,7 @@ const FEATURES = [
   },
   { 
     id: 'training',
-    customIcon: '/images/salesopscloudready/icon_training.png', 
+    customIcon: `${s3Url}/salesopscloudready/icon_training.png`, 
     title: "Onboarding & Training", 
     desc: "Built-in learning hub with pitch scorecards and mock calls.",
     whatItIs: "A built-in learning hub with pitch scorecards, mock calls, and continuous skill certifications.",
@@ -252,13 +253,13 @@ function FeatureCard({
             transition={{ duration: 0.15 }}
             className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20"
           >
-            <Link 
-              href="/setup" 
+            <a 
+              href="https://order.usclosers.com/en/wizard" 
               onClick={(e) => e.stopPropagation()} 
               className="px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[9px] sm:text-[10px] uppercase tracking-wide transition-all shadow-md shadow-blue-900/20 active:scale-95 whitespace-nowrap inline-block"
             >
               ORDER
-            </Link>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

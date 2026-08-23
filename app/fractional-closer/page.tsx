@@ -6,7 +6,9 @@ import { TrendingUp, CheckCircle2, XCircle, ArrowRight, ChevronRight, Lock } fro
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-const closerHeroImg = '/images/fractional-closer/hero.jpg';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const closerHeroImg = `${s3Url}/fractional-closer/hero.jpg`;
 
 export default function FractionalCloserPage() {
   const router = useRouter();
@@ -154,17 +156,17 @@ export default function FractionalCloserPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               { 
-                image: '/images/fractional-closer/icon_pain_base.png', title: 'Expensive Full-Time Base', 
+                image: `${s3Url}/fractional-closer/icon_pain_base.png`, title: 'Expensive Full-Time Base', 
                 problem: 'Senior AEs demand a steady $4,000–$8,000 base salary before they even make their first sale. The startup bears massive cash flow risks during long sales cycles.',
                 tag: 'Cash Flow Risk'
               },
               { 
-                image: '/images/fractional-closer/icon_pain_gap.png', title: 'The "Demo-to-Close" Gap', 
+                image: `${s3Url}/fractional-closer/icon_pain_gap.png`, title: 'The "Demo-to-Close" Gap', 
                 problem: 'Marketers and SDRs fill the calendar with meetings, but junior reps don\'t know how to handle Enterprise objections, security teams, and procurement. Leads burn up.',
                 tag: 'Burnt Leads'
               },
               { 
-                image: '/images/fractional-closer/icon_pain_founder.png', title: 'Founder as Eternal Salesman', 
+                image: `${s3Url}/fractional-closer/icon_pain_founder.png`, title: 'Founder as Eternal Salesman', 
                 problem: 'The CEO personally conducts 4-5 demos a day. The business stops growing because the founder has no time for product, strategy, and fundraising.',
                 tag: 'Growth Stagnation'
               }
@@ -201,19 +203,19 @@ export default function FractionalCloserPage() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-12 sm:mb-16">
             {[
               { 
-                title: 'Instant Onboarding', image: '/images/fractional-closer/icon_closer_onboarding.png',
+                title: 'Instant Onboarding', image: `${s3Url}/fractional-closer/icon_closer_onboarding.png`,
                 desc: 'The Closer studies your Playbook, product, and Value Proposition in 3 days, followed by a live certification.' 
               },
               { 
-                title: 'Calendar Management', image: '/images/fractional-closer/icon_closer_calendar.png',
+                title: 'Calendar Management', image: `${s3Url}/fractional-closer/icon_closer_calendar.png`,
                 desc: 'Lead Routing setup: SDR books a meeting -> the slot automatically drops into the assigned Fractional AE\'s calendar.' 
               },
               { 
-                title: 'Closing the Deal', image: '/images/fractional-closer/icon_closer_deal.png',
+                title: 'Closing the Deal', image: `${s3Url}/fractional-closer/icon_closer_deal.png`,
                 desc: 'The Closer runs Discovery/Demo, qualifies via BANT/MEDDIC, prepares custom proposals, negotiates with legal, and secures signatures.' 
               },
               { 
-                title: 'Full Transparency (QA)', image: '/images/fractional-closer/icon_closer_qa.png',
+                title: 'Full Transparency (QA)', image: `${s3Url}/fractional-closer/icon_closer_qa.png`,
                 desc: 'Every call is recorded in Gong / tl;dv. The founder can see negotiation logs and deal status in the CRM at any time.' 
               }
             ].map((step, i) => (

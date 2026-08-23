@@ -6,20 +6,22 @@ import Image from 'next/image';
 import { Target, LineChart, Database, Zap, Users, ChevronRight, ArrowRight, CheckCircle2, Handshake, Globe, Network, Search, Bot } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 // SalesOps PNG Images
-const recruitingImg = '/images/salesops/recruiting.png';
-const crmImg = '/images/salesops/crm.png';
-const qaImg = '/images/salesops/qa.png';
-const globalPayrollImg = '/images/salesops/global_payroll.png';
-const dataScrapingImg = '/images/salesops/data_scraping.png';
-const pipelineImg = '/images/salesops/predictable_pipeline.png';
+const recruitingImg = `${s3Url}/salesops/recruiting.png`;
+const crmImg = `${s3Url}/salesops/crm.png`;
+const qaImg = `${s3Url}/salesops/qa.png`;
+const globalPayrollImg = `${s3Url}/salesops/global_payroll.png`;
+const dataScrapingImg = `${s3Url}/salesops/data_scraping.png`;
+const pipelineImg = `${s3Url}/salesops/predictable_pipeline.png`;
 
 // Salesforce PNG Images
-const fractionalScoutImg = '/images/salesforce/fractional_scout.png';
-const fractionalSdrImg = '/images/salesforce/fractional_sdr.png';
-const fractionalCloserImg = '/images/salesforce/fractional_closer.png';
-const fractionalTeamLeadImg = '/images/salesforce/fractional_team_lead.png';
-const aiDigitalCloserImg = '/images/salesforce/ai_digital_closer.png';
+const fractionalScoutImg = `${s3Url}/salesforce/fractional_scout.png`;
+const fractionalSdrImg = `${s3Url}/salesforce/fractional_sdr.png`;
+const fractionalCloserImg = `${s3Url}/salesforce/fractional_closer.png`;
+const fractionalTeamLeadImg = `${s3Url}/salesforce/fractional_team_lead.png`;
+const aiDigitalCloserImg = `${s3Url}/salesforce/ai_digital_closer.png`;
 
 export const MEGA_MENU_ITEMS = [
   // Infrastructure & Systems (SalesOps)
@@ -182,13 +184,13 @@ export const MEGA_MENU_ITEMS = [
   {
     id: 'pricing-linkedin',
     title: 'LinkedIn Outreach',
-    path: '/predictable-pipeline',
+    path: 'https://order.usclosers.com/en/wizard',
     icon: Users,
     color: 'text-blue-600',
     bgColor: 'bg-blue-50',
     description: 'Generate warm B2B leads using precise LinkedIn parsing and manual outreach.',
     bullets: ['Est. Package: $2,700', '14 Days Timeline', 'Manual Scout Outreach'],
-    image: '/images/solutions/linkedin.png',
+    image: `${s3Url}/solutions/linkedin.png`,
     ctaText: 'View Details',
     subtitle: 'Est. Package $2,700',
     tags: ['Startups', 'Scaleups', 'Enterprise']
@@ -196,13 +198,13 @@ export const MEGA_MENU_ITEMS = [
   {
     id: 'pricing-first-call',
     title: 'First Sales Call in 7 Days',
-    path: '/predictable-pipeline',
+    path: 'https://order.usclosers.com/en/wizard',
     icon: Zap,
     color: 'text-emerald-600',
     bgColor: 'bg-emerald-50',
     description: 'Book highly targeted prospect calls fast using AI and CRM enrichment.',
     bullets: ['Est. Package: $5,350', '7 Days Timeline', 'AI SDR Enrichment'],
-    image: '/images/solutions/call.png',
+    image: `${s3Url}/solutions/call.png`,
     ctaText: 'View Details',
     subtitle: 'Est. Package $5,350',
     tags: ['Startups', 'Scaleups', 'Enterprise']
@@ -210,13 +212,13 @@ export const MEGA_MENU_ITEMS = [
   {
     id: 'pricing-mou',
     title: '10 MoU Signed in 20 Days',
-    path: '/predictable-pipeline',
+    path: 'https://order.usclosers.com/en/wizard',
     icon: Handshake,
     color: 'text-indigo-600',
     bgColor: 'bg-indigo-50',
     description: 'Secure strategic partnerships rapidly with an expert Closer and automated AI outreach.',
     bullets: ['Est. Package: $7,200', '20 Days Timeline', 'Expert Closer + AI'],
-    image: '/images/solutions/mou.png',
+    image: `${s3Url}/solutions/mou.png`,
     ctaText: 'View Details',
     subtitle: 'Est. Package $7,200',
     tags: ['Startups', 'Scaleups']

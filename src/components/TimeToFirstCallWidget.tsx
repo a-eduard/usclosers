@@ -7,6 +7,9 @@ import { motion, AnimatePresence, animate } from 'framer-motion';
 
 import { USClosersLogo } from './USClosersLogo';
 
+// Добавляем базовый URL из .env
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 const STEPS = [
   { id: 1, title: 'Recruiting & Hiring', desc: 'Sourcing top\nsales talent.' },
   { id: 2, title: 'CRM & Pipelines', desc: 'Building digital infrastructure.' },
@@ -168,28 +171,28 @@ const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, pr
 
 const STEP_STATES: Record<number, StateData> = {
   1: {
-    withoutService: { calls: 0, sales: 0, budget: 5000, tts: 14, image: '/images/old_rooms/17.png' },
-    withService: { calls: 0, sales: 0, budget: 1500, tts: 3, image: '/images/old_rooms/6.png' },
+    withoutService: { calls: 0, sales: 0, budget: 5000, tts: 14, image: `${s3Url}/old_rooms/17.png` },
+    withService: { calls: 0, sales: 0, budget: 1500, tts: 3, image: `${s3Url}/old_rooms/6.png` },
     leftTasks: getLeftTasks(1), rightTasks: getRightTasks(1)
   },
   2: {
-    withoutService: { calls: 0, sales: 0, budget: 7500, tts: 21, image: '/images/old_rooms/17.png' },
-    withService: { calls: 0, sales: 0, budget: 3000, tts: 7, image: '/images/old_rooms/12.png' },
+    withoutService: { calls: 0, sales: 0, budget: 7500, tts: 21, image: `${s3Url}/old_rooms/17.png` },
+    withService: { calls: 0, sales: 0, budget: 3000, tts: 7, image: `${s3Url}/old_rooms/12.png` },
     leftTasks: getLeftTasks(2), rightTasks: getRightTasks(2)
   },
   3: {
-    withoutService: { calls: 0, sales: 0, budget: 10000, tts: 35, image: '/images/old_rooms/6.png' },
-    withService: { calls: 10, sales: 0, budget: 5000, tts: 14, image: '/images/old_rooms/3.png' },
+    withoutService: { calls: 0, sales: 0, budget: 10000, tts: 35, image: `${s3Url}/old_rooms/6.png` },
+    withService: { calls: 10, sales: 0, budget: 5000, tts: 14, image: `${s3Url}/old_rooms/3.png` },
     leftTasks: getLeftTasks(3), rightTasks: getRightTasks(3)
   },
   4: {
-    withoutService: { calls: 10, sales: 0, budget: 15000, tts: 39, image: '/images/old_rooms/6.png' },
-    withService: { calls: 30, sales: 0, budget: 7500, tts: 21, image: '/images/old_rooms/7.png' },
+    withoutService: { calls: 10, sales: 0, budget: 15000, tts: 39, image: `${s3Url}/old_rooms/6.png` },
+    withService: { calls: 30, sales: 0, budget: 7500, tts: 21, image: `${s3Url}/old_rooms/7.png` },
     leftTasks: getLeftTasks(4), rightTasks: getRightTasks(4)
   },
   5: {
-    withoutService: { calls: 30, sales: 0, budget: 30000, tts: 90, image: '/images/old_rooms/3.png' },
-    withService: { calls: 100, sales: 3000, budget: 15000, tts: 30, image: '/images/old_rooms/10.png' },
+    withoutService: { calls: 30, sales: 0, budget: 30000, tts: 90, image: `${s3Url}/old_rooms/3.png` },
+    withService: { calls: 100, sales: 3000, budget: 15000, tts: 30, image: `${s3Url}/old_rooms/10.png` },
     leftTasks: getLeftTasks(5), rightTasks: getRightTasks(5)
   }
 };

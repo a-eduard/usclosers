@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 export function Pricing() {
   return (
     <section id="pricing" className="py-16 md:py-24 bg-background-secondary relative overflow-hidden transition-theme">
@@ -44,7 +46,7 @@ export function Pricing() {
             <div className="flex justify-between items-start mb-6 md:mb-8">
               <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 relative transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105">
                 <Image 
-                  src="/images/solutions/linkedin.png" 
+                  src={`${s3Url}/solutions/linkedin.png`} 
                   alt="LinkedIn Outreach" 
                   fill
                   quality={75}
@@ -68,7 +70,8 @@ export function Pricing() {
                 <div className="text-2xl sm:text-3xl font-black text-text-primary transition-theme">$2,700</div>
               </div>
               <a 
-                href="https://usclosers-wizard.vercel.app/en" 
+                // TODO: Change this link later to the specific page for "LinkedIn Outreach"
+                href="https://order.usclosers.com/en/wizard" 
                 className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-text-primary text-background-primary rounded-xl font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:-translate-y-0.5"
               >
                 Launch <ArrowRight className="w-4 h-4" />
@@ -87,7 +90,7 @@ export function Pricing() {
             <div className="flex justify-between items-start mb-6 md:mb-8">
               <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 relative transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105">
                 <Image 
-                  src="/images/solutions/call.png" 
+                  src={`${s3Url}/solutions/call.png`} 
                   alt="First Sales Call" 
                   fill
                   quality={75}
@@ -111,7 +114,8 @@ export function Pricing() {
                 <div className="text-2xl sm:text-3xl font-black text-text-primary transition-theme">$5,350</div>
               </div>
               <a 
-                href="https://usclosers-wizard.vercel.app/en" 
+                // TODO: Change this link later to the specific page for "First Sales Call"
+                href="https://order.usclosers.com/en/wizard" 
                 className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-text-primary text-background-primary rounded-xl font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:-translate-y-0.5"
               >
                 Launch <ArrowRight className="w-4 h-4" />
@@ -130,7 +134,7 @@ export function Pricing() {
             <div className="flex justify-between items-start mb-6 md:mb-8">
               <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 relative transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105">
                 <Image 
-                  src="/images/solutions/mou.png" 
+                  src={`${s3Url}/solutions/mou.png`} 
                   alt="10 MoU Signed" 
                   fill
                   quality={75}
@@ -154,7 +158,8 @@ export function Pricing() {
                 <div className="text-2xl sm:text-3xl font-black text-text-primary transition-theme">$7,200</div>
               </div>
               <a 
-                href="https://usclosers-wizard.vercel.app/en" 
+                // TODO: Change this link later to the specific page for "10 MoU Signed"
+                href="https://order.usclosers.com/en/wizard" 
                 className="flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-text-primary text-background-primary rounded-xl font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:-translate-y-0.5"
               >
                 Launch <ArrowRight className="w-4 h-4" />

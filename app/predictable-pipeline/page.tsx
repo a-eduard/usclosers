@@ -6,7 +6,9 @@ import { CheckCircle2, XCircle, ShieldCheck, Target, DollarSign, Calculator, Arr
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-const pipelineHeroImg = '/images/predictable-pipeline/hero.jpg';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
+const pipelineHeroImg = `${s3Url}/predictable-pipeline/hero.jpg`;
 
 export default function PredictablePipelinePage() {
   const router = useRouter();
@@ -167,19 +169,19 @@ export default function PredictablePipelinePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               { 
-                image: '/images/predictable-pipeline/icon_pain_burnout.png', title: 'Sales Burnout', 
+                image: `${s3Url}/predictable-pipeline/icon_pain_burnout.png`, title: 'Sales Burnout', 
                 problem: 'Instead of closing deals, AEs and SDRs spend 70% of their time on manual contact searches, LinkedIn spam, and sending emails.',
                 impact: 'Result: 98% ignore rate and burned-out closers.',
                 tag: 'Wasted Time'
               },
               { 
-                image: '/images/predictable-pipeline/icon_pain_spam.png', title: 'Spam Domain Bans', 
+                image: `${s3Url}/predictable-pipeline/icon_pain_spam.png`, title: 'Spam Domain Bans', 
                 problem: 'Sending cold emails from your primary domain without proper technical warm-up leads to immediate corporate blacklists.',
                 impact: 'Result: Crucial emails to active clients stop reaching their inboxes.',
                 tag: 'Technical Risk'
               },
               { 
-                image: '/images/predictable-pipeline/icon_pain_unpredictable.png', title: 'Unpredictable Results', 
+                image: `${s3Url}/predictable-pipeline/icon_pain_unpredictable.png`, title: 'Unpredictable Results', 
                 problem: 'One month word-of-mouth brings 5 deals, the next month zero. There is no systemic lever to pull for growth.',
                 impact: 'Result: You cannot plan hiring or revenue effectively.',
                 tag: 'No Scale'
@@ -222,19 +224,19 @@ export default function PredictablePipelinePage() {
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             {[
               { 
-                title: 'Infrastructure Setup', image: '/images/predictable-pipeline/icon_solution_infrastructure.png',
+                title: 'Infrastructure Setup', image: `${s3Url}/predictable-pipeline/icon_solution_infrastructure.png`,
                 desc: 'Purchase and configuration of 10+ donor domains, SPF/DKIM/DMARC records, and 3-week automated warm-up via Smartlead/Instantly.' 
               },
               { 
-                title: 'Smart Scraping & Enrichment', image: '/images/predictable-pipeline/icon_solution_scraping.png',
+                title: 'Smart Scraping & Enrichment', image: `${s3Url}/predictable-pipeline/icon_solution_scraping.png`,
                 desc: 'Scraping decision-makers via Apollo.io / LinkedIn Sales Navigator, data cleaning in Clay, and 100% email validation via SMTP checkers.' 
               },
               { 
-                title: 'Multichannel Outreach', image: '/images/predictable-pipeline/icon_solution_outreach.png',
+                title: 'Multichannel Outreach', image: `${s3Url}/predictable-pipeline/icon_solution_outreach.png`,
                 desc: 'Sequences (3-4 follow-ups) with mailbox rotation, dynamic AI-icebreakers, and automated LinkedIn actions (Expandi / Waalaxy).' 
               },
               { 
-                title: 'Inbox Management & Qualification', image: '/images/predictable-pipeline/icon_solution_inbox.png',
+                title: 'Inbox Management & Qualification', image: `${s3Url}/predictable-pipeline/icon_solution_inbox.png`,
                 desc: 'Our dedicated manager filters replies, handles objections, and pushes warm leads directly to book time in your Calendly.' 
               }
             ].map((step, i) => (
@@ -396,7 +398,7 @@ export default function PredictablePipelinePage() {
       </section>
 
       {/* Lead Capture Form */}
-      <section id="lead-form" className="py-16 md:py-32 bg-background-secondary relative overflow-hidden border-t border-border-primary transition-theme">
+      <section id="lead-form" className="py-16 md:py-32 bg-background-secondary relative overflow-hidden border-t border-border-primary/50 transition-theme">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-rose-100 dark:bg-rose-600/10 blur-[80px] md:blur-[120px] pointer-events-none rounded-full transition-theme"></div>
         
         <div className="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -23,6 +23,8 @@ import {
   ReferenceLine
 } from 'recharts';
 
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
+
 const CHART_DATA = [
   { name: 'Week 1', signups: 120, mrr: 15000 },
   { name: 'Week 2', signups: 250, mrr: 22000 },
@@ -188,17 +190,17 @@ export default function VentureTractionEnginePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { 
-                image: '/images/venture-traction/icon_pain_crunch.png', title: 'Fundraising Crunch', 
+                image: `${s3Url}/venture-traction/icon_pain_crunch.png`, title: 'Fundraising Crunch', 
                 problem: 'Investors demand hard data and predictable unit economics, but growth has slowed. The time left on your runway is rapidly shrinking.',
                 tag: 'Time Pressure'
               },
               { 
-                image: '/images/venture-traction/icon_pain_budget.png', title: 'Wasted Budgets', 
+                image: `${s3Url}/venture-traction/icon_pain_budget.png`, title: 'Wasted Budgets', 
                 problem: 'Buying expensive contextual and targeted ads gives clicks, but no conversion to activation. A high CAC kills product economics.',
                 tag: 'High CAC'
               },
               { 
-                image: '/images/venture-traction/icon_pain_analytics.png', title: 'Blind Analytics', 
+                image: `${s3Url}/venture-traction/icon_pain_analytics.png`, title: 'Blind Analytics', 
                 problem: 'Metrics are scattered. It\'s impossible to prove clean Pipeline Velocity and LTV to funds because calls, emails, and CRM aren\'t unified.',
                 tag: 'No Data'
               }
@@ -235,18 +237,18 @@ export default function VentureTractionEnginePage() {
           <div className="grid lg:grid-cols-3 gap-8">
             {[
               {
-                title: 'Module 1: Growth Hacking & CRO Engine', image: '/images/venture-traction/icon_solution_cro.png',
+                title: 'Module 1: Growth Hacking & CRO Engine', image: `${s3Url}/venture-traction/icon_solution_cro.png`,
                 desc: 'Optimization of the activation funnel, designing viral loops (Referral loops) and retention mechanics to maximize Retention Rate (Day 1/7/30).',
                 bullets: ['Viral Loops Design', 'Funnel Optimization', 'Retention Focus']
               },
               {
-                title: 'Module 2: 1,000 Verified Sign-ups', image: '/images/venture-traction/icon_solution_signups.png',
+                title: 'Module 2: 1,000 Verified Sign-ups', image: `${s3Url}/venture-traction/icon_solution_signups.png`,
                 desc: 'Driving targeted, pre-filtered traffic. We bring in 1,000 real users who have passed your Activation Milestone (no bots and fraud).',
                 bullets: ['Target Traffic Injection', 'Real Active Users', 'SLA Guaranteed'],
                 highlight: true
               },
               {
-                title: 'Module 3: Unified RevOps Analytics', image: '/images/venture-traction/icon_solution_revops.png',
+                title: 'Module 3: Unified RevOps Analytics', image: `${s3Url}/venture-traction/icon_solution_revops.png`,
                 desc: 'Full integration and setup of HubSpot + Gong.io. Automated conversation intelligence, transparent deal tracking, and automated investor dashboards.',
                 bullets: ['HubSpot + Gong Setup', 'Conversation Intel', 'Investor Dashboards']
               }
@@ -282,7 +284,7 @@ export default function VentureTractionEnginePage() {
           <div className="text-center mb-16 flex flex-col items-center">
             <div className="w-40 h-40 mb-8 relative drop-shadow-xl hover:scale-105 transition-transform duration-500">
                <Image 
-                 src="/images/venture-traction/icon_timeline.png" 
+                 src={`${s3Url}/venture-traction/icon_timeline.png`} 
                  alt="30-Day Traction Timeline" 
                  fill
                  sizes="160px"

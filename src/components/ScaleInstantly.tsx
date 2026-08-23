@@ -5,19 +5,21 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Layers, Shield, RefreshCw, Pointer, Zap } from 'lucide-react';
 
-const imageO8 = '/images/old_rooms/8.png';
-const imageO3 = '/images/old_rooms/3.png';
-const imageO16 = '/images/old_rooms/16.png';
+const s3Url = process.env.NEXT_PUBLIC_S3_BASE_URL || '';
 
-const avatarSDR = '/images/sales_avatar_1_1783204345925.jpg';
-const avatarScout = '/images/sales_avatar_1_1783204345925.jpg';
-const avatarOps = '/images/sales_avatar_1_1783204345925.jpg';
-const avatarCloser = '/images/sales_avatar_1_1783204345925.jpg';
-const avatarLead = '/images/sales_avatar_1_1783204345925.jpg';
-const avatarPartner = '/images/sales_avatar_1_1783204345925.jpg';
-const avatarFounder = '/images/sales_avatar_1_1783204345925.jpg'; 
-const avatarDigital = '/images/sales_avatar_1_1783204345925.jpg'; 
-const avatarCopilot = '/images/sales_avatar_1_1783204345925.jpg'; 
+const imageO8 = `${s3Url}/old_rooms/8.png`;
+const imageO3 = `${s3Url}/old_rooms/3.png`;
+const imageO16 = `${s3Url}/old_rooms/16.png`;
+
+const avatarSDR = `${s3Url}/sales_avatar_1_1783204345925.jpg`;
+const avatarScout = `${s3Url}/sales_avatar_1_1783204345925.jpg`;
+const avatarOps = `${s3Url}/sales_avatar_1_1783204345925.jpg`;
+const avatarCloser = `${s3Url}/sales_avatar_1_1783204345925.jpg`;
+const avatarLead = `${s3Url}/sales_avatar_1_1783204345925.jpg`;
+const avatarPartner = `${s3Url}/sales_avatar_1_1783204345925.jpg`;
+const avatarFounder = `${s3Url}/sales_avatar_1_1783204345925.jpg`; 
+const avatarDigital = `${s3Url}/sales_avatar_1_1783204345925.jpg`; 
+const avatarCopilot = `${s3Url}/sales_avatar_1_1783204345925.jpg`; 
 
 const BUNDLES = [
   {
@@ -123,7 +125,7 @@ export function ScaleInstantly() {
                       }`}
                       onClick={(e) => {
                         e.stopPropagation(); 
-                        window.location.href = '/setup';
+                        window.location.href = 'https://order.usclosers.com/';
                       }}
                     >
                       Order
@@ -199,7 +201,6 @@ export function ScaleInstantly() {
                       >
                         <div
                           onClick={() => setExpandedService(isExpanded ? null : service.title)}
-                          // Убраны layout-пропсы, теперь ширина меняется быстро и гладко через transition-all
                           className={`group cursor-pointer bg-background-primary border transition-all duration-200 rounded-2xl overflow-hidden flex flex-col shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.6)] ${
                             isExpanded 
                               ? 'border-blue-500 shadow-[0_20px_40px_-15px_rgba(59,130,246,0.4)] w-[260px] sm:w-[280px]' 
